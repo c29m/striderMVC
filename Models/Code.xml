@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<code>
+	<item title="JsonDocument" filename="JsonDocument.cs" platform="C#.NET 4.0" description="Generates and parses Json.  Generation is catered for anonymous classes and LINQ." />
+	<item title="ID3v2 Tag Reader" filename="ID3v2.cs" platform="C#.NET 3.5" description="Reads ID3v2 tags/images from MP3s. Supports 2.2 - 2.4 tags, and made it easy to add support for future tags." />
+	<item title="Base85" filename="Base85.cs" platform="C#.NET 3.5" description="My own implementation of ASCII85.  Maybe it could be better." />
+	<item title="ImgChan" filename="ImgChan.cs" platform="C#.NET 3.5" description="The heart of my ImgChan program, downloads images from a *chan thread into a given directory, asynchronously" />
+	<item title="RandomKey" filename="RandomKey.cs" platform="C#.NET 2.0" description="Something I whipped up at work that generates a random password (w/ hashes) of a specified length and character set." />
+	<item title="Fraction" filename="Fraction.cs" platform="C#.NET 2.0" description="Performs fraction math using literal fractions.  I created it to understand more about operator overloading." />
+	<item title="BitchX YouTube script" filename="yt.bx" platform="BitchX Script" description="Aggregates youtube links posted in IRC." />
+</code>

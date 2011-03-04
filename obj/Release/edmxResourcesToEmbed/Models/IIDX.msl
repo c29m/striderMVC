@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IIDXModelStoreContainer" CdmEntityContainer="IIDXEntities">
+    <EntitySetMapping Name="CSRevivals">
+      <EntityTypeMapping TypeName="IIDXModel.CSRevival">
+        <MappingFragment StoreEntitySet="CSRevivals">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SongInfoID" ColumnName="SongInfoID" />
+          <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DJs">
+      <EntityTypeMapping TypeName="IIDXModel.DJ">
+        <MappingFragment StoreEntitySet="DJs">
+          <ScalarProperty Name="DJID" ColumnName="DJID" />
+          <ScalarProperty Name="DJName" ColumnName="DJName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modes">
+      <EntityTypeMapping TypeName="IIDXModel.Mode">
+        <MappingFragment StoreEntitySet="Modes">
+          <ScalarProperty Name="ModeID" ColumnName="ModeID" />
+          <ScalarProperty Name="Mode1" ColumnName="Mode" />
+          <ScalarProperty Name="Abbr" ColumnName="Abbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scores">
+      <EntityTypeMapping TypeName="IIDXModel.Score">
+        <MappingFragment StoreEntitySet="Scores">
+          <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+          <ScalarProperty Name="DJID" ColumnName="DJID" />
+          <ScalarProperty Name="SongID" ColumnName="SongID" />
+          <ScalarProperty Name="EXScore" ColumnName="EXScore" />
+          <ScalarProperty Name="ArcadeScore" ColumnName="ArcadeScore" />
+          <ScalarProperty Name="Stamp" ColumnName="Stamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SongInfoes">
+      <EntityTypeMapping TypeName="IIDXModel.SongInfo">
+        <MappingFragment StoreEntitySet="SongInfo">
+          <ScalarProperty Name="SongInfoID" ColumnName="SongInfoID" />
+          <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="BPM" ColumnName="BPM" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Songs">
+      <EntityTypeMapping TypeName="IIDXModel.Song">
+        <MappingFragment StoreEntitySet="Songs">
+          <ScalarProperty Name="SongID" ColumnName="SongID" />
+          <ScalarProperty Name="ModeID" ColumnName="ModeID" />
+          <ScalarProperty Name="SongInfoID" ColumnName="SongInfoID" />
+          <ScalarProperty Name="TotalNotes" ColumnName="TotalNotes" />
+          <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Styles">
+      <EntityTypeMapping TypeName="IIDXModel.Style">
+        <MappingFragment StoreEntitySet="Styles">
+          <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+          <ScalarProperty Name="StyleOrder" ColumnName="StyleOrder" />
+          <ScalarProperty Name="StyleName" ColumnName="StyleName" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

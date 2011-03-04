@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="HeaderEntities">
+    <EntitySetMapping Name="Headers">
+      <EntityTypeMapping TypeName="Models.Header">
+        <MappingFragment StoreEntitySet="Headers">
+          <ScalarProperty Name="Id" ColumnName="id" />
+          <ScalarProperty Name="Value" ColumnName="header" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

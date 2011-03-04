@@ -1,0 +1,104 @@
+#################################################
+#     Youtube link aggregator by strider-
+# Dumps all posted youtube links into ~/Public/Drop Box/.bxyt.xml
+# Written on 9/24/2008, just to learn about
+# scripting in bitchx.
+#################################################
+
+@ yt.version = [1.9.4]
+@ yt.geno = 0
+@ yt.geno.host = [~bluntasti@cpe-76-87-207-22.socal.res.rr.com]
+@ yt.logpath = [~/Public/.bxyt.xml]
+@ yt.lasttitle = [N/A]
+@ yt.announce = 1
+
+eval xecho -b BX YouTube aggregator, version $yt.version by strider- loaded.  Type /ytconf to configure.
+
+alias _process {
+    assign yts $pattern(http*youtube.com/watch?v=* $2-)
+    assign c $strlen($yts)
+
+    if ([$c] > 0) {
+        # open the xml file
+        @ :ytfh = [$open("$yt.logpath" W)]
+        if ([$ytfh] == -1) { xecho -b BXYT: Failed to open YouTube log. } {
+
+            # replacing & with xml-friendly &amp;
+            $sar(rg/&/&amp;/yts)
+
+            # getting the title of the video using my yttitle script
+            @ fname = [~/.] ## [$0] ## [.txt]
+            exec -name proc ~/yttitle.sh $yts > $fname
+            wait %proc
+
+            @ tfile = [$open($fname R)]
+            assign yt.lasttitle $read($tfile)
+            @ close($tfile)
+            @ unlink($fname)
+
+            # announcing the title in the channel
+            timer 1 {
+              say Title: $yt.lasttitle
+            }
+              
+            # writing the xml node for the entry
+            $write($ytfh <entry>)
+            $write($ytfh    <date>$strftime(%m-%d-%y)</date>)
+            $write($ytfh    <time>$strftime(%H:%M)</time>)
+            $write($ytfh    <nick>$0</nick>)
+            $write($ytfh    <link>$yts</link>)
+            $write($ytfh    <title>$yt.lasttitle</title>)
+            $write($ytfh </entry>)
+   
+            # close the xml file
+            $close($ytfh)
+
+            assign -ytfh
+            assign -fname
+        }
+    }
+
+    assign -yts
+    assign -c
+
+    # warning everyone if geno posts a youtube link, and the flag is on
+    if ([$yt.geno] == 1 && [$c] > 0) {
+        if ([$tolower($gethost($0))] == [$tolower($yt.geno.host)]) {
+           $say $chr(3)4,1\/!\\ $chr(3)15GENOCYDE YOUTUBE LINK $chr(3)4/!\\   
+        }
+    }
+}
+
+alias ytconf {
+    if ([$0]) {
+        if (![$1]) { return }        
+
+        switch ($0) {
+            (geno) {
+                @ yt.geno = ([$1]==[on]) ? 1 : 0
+                eval xecho -b BXYT: genocyde warning is now [$chr(3)8${yt.geno?[ON]:[OFF]}$chr(3)0].
+                return 
+            }
+            (announce) {
+                @ yt.announce = ([$1]==[on]) ? 1 : 0
+                eval xecho -b BXYT: channel announcement of youtube title is now [$chr(3)8${yt.announce?[ON]:[OFF]}$chr(3)0].
+                return
+            }
+            (*) {xecho -b BXYT: Invalid switch '$0' }
+        }
+    }
+
+	eval xecho -b BX youtube options.  Usage: /ytconf $chr(3)3<key> $chr(3)11<value>
+	eval xecho -b   $chr(3)3geno$chr(3)0 [$chr(3)11ON $chr(3)0|$chr(3)11 OFF$chr(3)0] $chr(3)0- Controls the genocyde youtube link warning. Currently [$chr(3)8${yt.geno?[ON]:[OFF]}$chr(3)0].
+        eval xecho -b   $chr(3)3announce$chr(3)0 [$chr(3)11ON $chr(3)0|$chr(3)11 OFF$chr(3)0] $chr(3)0- Controls the video title announcement.  Currently [$chr(3)8${yt.announce?[ON]:[OFF]}$chr(3)0].
+	xecho -b
+}
+
+alias goonsay {
+  $say  __________
+  $say \(--[ .]-[ .] \/
+  $say \(_______o__\)
+}
+
+on #-public 835 * _process $0 $1 $2-
+on #-send_public 835 * _process $N $0 $1-
