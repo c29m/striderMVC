@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <title>a.b.strider-</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8;" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+
+    <link href="<%= Url.Content("~/feeds/rss") %>" rel="alternate" type="application/rss+xml" />
+    <link href="<%= Url.Content("~/Content/favicon.png") %>" rel="icon" type="image/png" /> 
+    <link rel="stylesheet" href="<%= Url.Content("~/Content/site.css") %>" type="text/css" media="screen,projection" />
+</head>
+
+<body>
+<div id="container">
+
+    <div id="header">
+        <h1>alt.binaries.strider-</h1>
+        <h2><%= ViewData["Header"] %></h2>
+        <div id="header-links">
+            <a href="mailto:strider@anthra.cx">Contact</a> | 
+            <%= Html.RouteLink("RSS", "Feeds", new {type="rss"}) %> | 
+            <% Html.RenderPartial("Account"); %>
+        </div>
+    </div>
+
+    <div id="navigation">
+        <% Html.RenderPartial("Navigation"); %>
+    </div>
+
+    <div id="content">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+
+    <div id="subcontent">
+        <p>
+            <a href="http://www.facebook.com/strizzay" title="strizzay" target="_TOP">
+                <img src="http://badge.facebook.com/badge/1518572956.1924.290956962.png" width="120" height="152" style="border: 0px;" alt="[f]" />
+            </a>
+        </p>
+
+        <div id="searchbar">
+            <h2>Search</h2> 
+            <% using(Html.BeginForm("Search", "Home", FormMethod.Post)) { %>
+                <fieldset> 
+                <input value="" name="s" id="s" />
+                <input type="submit" value="Go!" id="searchbutton" name="searchbutton" onclick="return s.value.trim().length > 0;" /> 
+                </fieldset>
+            <% } %>
+        </div>         
+        <% Html.RenderPartial("AdminMenu"); %>
+        <% Html.RenderPartial("LinksMenu"); %>
+    </div>
+
+    <div id="footer">
+        <p>Some stuff goes here I guess I don't know</p>
+    </div>
+</div>
+<!--
+<div id="credits">
+    Web Template by Andreas Viklund - http://andreasviklund.com
+</div>
+-->
+</body>
+</html>
