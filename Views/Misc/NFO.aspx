@@ -17,9 +17,9 @@
 ▐▓████▌  ▄                                                         
  █▓████▄▐▌▓▓▓▓▓▓▓▒▒░ ░                              ░ ░▒▒▓▓▓▓▓▓▐   
 ▄ ███████▌                                                         
- ▄▄▀█████▌      Notes: bustin warez mad warez since 1989           
+ ▄▄▀█████▌      Notes: bustin code mad code since 1989           
 ▀▓▓███████      Greez go out to #changoland, RP, smurf &           
- ▀█▓▓█████    all the warez rydaz holdin it down worldwide         
+ ▀█▓▓█████    all the codin' rydaz holdin it down worldwide         
   ▓▄ ▀█▓██▌                                                        
   ▒ ▓▄ ▀▓██                                                        
   ▒ ▒ ▓▄ ▀▓▌░░░░░░░░░░░░░     Format by SWAG    ░░░░░░░░░░░░░▐     

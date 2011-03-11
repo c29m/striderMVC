@@ -8,6 +8,6 @@
     <%= Html.MenuItem("Projects", "Projects", "Development") %>
     <%= Html.MenuItem("Code", "Code", "Development")%>
     <%= Html.MenuItem("IIDX", "Index", "IIDX") %>
-    <%= Html.MenuItem("360", "Gamercard", "Misc") %>
+    <!-- <%= Html.MenuItem("360", "Gamercard", "Misc") %> -->
     <%= Html.MenuItem("About", "NFO", "Misc") %>    
 </ul>
