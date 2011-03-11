@@ -1,5 +1,0 @@
-G:\Visual Studio Projects\2010\striderMVC\striderMVC\bin\striderMVC.dll
-G:\Visual Studio Projects\2010\striderMVC\striderMVC\bin\striderMVC.pdb
-G:\Visual Studio Projects\2010\striderMVC\striderMVC\obj\Release\ResolveAssemblyReference.cache
-G:\Visual Studio Projects\2010\striderMVC\striderMVC\obj\Release\striderMVC.dll
-G:\Visual Studio Projects\2010\striderMVC\striderMVC\obj\Release\striderMVC.pdb
